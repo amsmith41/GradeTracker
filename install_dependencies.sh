@@ -1,6 +1,10 @@
 
 #!/bin/bash
 sudo apt install postgresql postgresql-contrib
-apt install python3.10-venv
+apt install python3-venv
 sudo apt install libpq-dev python3-dev
-pip install psycopg2
+
+python3 -m pip install django
+python3 -m pip install psycopg2-binary
+python3 -m pip install psycopg2-binary
+python3 -m pip install python-dotenv
