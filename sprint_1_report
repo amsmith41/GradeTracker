@@ -1,0 +1,42 @@
+# Sprint 1 Report
+Video Link: https://www.youtube.com/watch?v=t1QGcH5BzpQ
+## What's New (User Facing)
+* Feature 1 Login Screen
+* Feature 2 Authentication System with user registration
+* Feature 3 Database to store information
+
+##Work Summary (Developer Facing
+There were difficulties in understanding the languages we were using for the project. The whole team is really only familiar with C/C++, as it
+was the language we have all used most, and used most recently.
+We worked with PostgreSQL for the database, and Django, a high level python web framework for the login and authentication system.
+We have learned to use these languages to the benefit of ourselves, and the project; the research was fruitful.
+Significant knowledge was gained in the fields of the 2 previously mentioned languages, as well as virtual environments, teamwork and synchronization of components, git, and database tables.
+
+#Unfinished Work
+The connection between login page, authentication system, and database is incomplete. We need to unite these fronts altogether in a future sprint. This will allow for the admin, which is already created through the authentication process,
+to be able to add instructors and students as registered individuals. It was not anticipated the level of difficulty joining together Django and PostgreSQL, which primarily attributes to the lack of implementation on this idea.
+
+## Completed Issues/User Stories
+https://github.com/amsmith41/GradeTracker/issues/15 - Collaboration Diagram
+https://github.com/amsmith41/GradeTracker/issues/14 - Sequence Diagram
+https://github.com/amsmith41/GradeTracker/issues/13 - Activity Diagram
+https://github.com/amsmith41/GradeTracker/issues/12 - State Diagram
+https://github.com/amsmith41/GradeTracker/issues/8 - Authentication
+https://github.com/amsmith41/GradeTracker/issues/6 - Component Diagram
+https://github.com/amsmith41/GradeTracker/issues/5 - Deployment Diagram
+https://github.com/amsmith41/GradeTracker/issues/1 - Sprint 1 Backlog Document
+https://github.com/amsmith41/GradeTracker/issues/16 - Feature Demonstration
+https://github.com/amsmith41/GradeTracker/issues/17 - Feature Demonstration
+https://github.com/amsmith41/GradeTracker/issues/18 - Feature Demonstration
+https://github.com/amsmith41/GradeTracker/issues/11 - Sprint Video
+https://github.com/amsmith41/GradeTracker/issues/10 - Database
+https://github.com/amsmith41/GradeTracker/issues/4 - Retrospective Report
+https://github.com/amsmith41/GradeTracker/issues/3 - Sprint Review Report
+
+##Incomplete Issues/User Stories
+US - Registration of Instructor to database - See first issue below
+US - Registration of Student to database - See first issue below
+Issue - Connection between DB and Authentication system, coordination between Django and PostgreSQL more difficult than anticipated, ran out of time to implement
+Issue - Connection between custom login page and Authentication system, coordination of login ui with authentication did not occur due to time constraint
+
+##Code Files for Review
