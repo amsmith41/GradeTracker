@@ -14,10 +14,12 @@ media/
 # Virtual environment folder:
 venv/
 .venv/
+*venv*
 
 # Ignore .env files
 .env
 .env.*
+
 
 # IDE specific files
 .vscode/
