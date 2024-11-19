@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+{% for comment in comments %} <!-- for loop  article html snippet template-->
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'gradetracker-comment' %}">{{comment.author}}</a> <!-- double curly to use variable -->
+      <small class="text-muted">{{ comment.comment_posted }}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{ assignment.instructor.first_name }} {{ assignment.instructor.last_name }}</a></h2>
+    <p class="article-content">{{ comment.content }}</p>
+    
+  </div>
+</article>
+{% endfor %}
+
+  
+  <article class="media content-section">
+    
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.author }}</a>
+        <small class="text-muted">{{ object.comment_posted|date:"F d, Y" }}</small>
+        {% if object.author == user %}
+          <div> <!--now we have functionalies added upadate and delete-->
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comment-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment-delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+      <h2 class="article-title">{{ object.author.first_name }} {{ object.author.last_name }}'s comment</h2>
+      <p class="article-content">{{ object.content }}</p>
+    </div>
+  </article>
+{% endblock content %}

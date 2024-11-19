@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% block content %}
+    {% for course in courses %} <!-- for loop  article html snippet template-->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'gradetracker-assignment' %}">{{ course.course_name }}</a> <!-- double curly to use variable -->
+              <small class="text-muted">{{ course.registered }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ course.instructor.first_name }} {{ course.instructor.last_name }}</a></h2>
+            <p class="article-content">{{ course.course_description}}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

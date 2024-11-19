@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{% block content %}
+    {% for assignment in assignments %} <!-- for loop  article html snippet template-->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'gradetracker-comment' %}">{{ assignment.assignment_title }}</a> <!-- double curly to use variable -->
+              <small class="text-muted">{{ assignment.assignment_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ assignment.instructor.first_name }} {{ assignment.instructor.last_name }}</a></h2>
+            <p class="article-content">{{ assignment.instruction }}</p>
+            
+            {% if assignment.grade %}
+              <p class="article-grade">Grade: {{ assignment.grade }}</p>
+            {% else %}
+              <p class="article-grade">Grade: Not yet graded</p>
+            {% endif %}
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
