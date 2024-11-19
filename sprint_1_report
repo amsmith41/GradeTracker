@@ -43,16 +43,21 @@ Issue - Connection between custom login page and Authentication system, coordina
 
 
 # Sprint 2 Report
-Video Link: youtube link here! derek gives link
+Video Link: https://youtu.be/5oL3NiJed4Q
 ## What's New (User Facing)
-* Feature 1 
-* Feature 2 
-* Feature 3 
+* Feature 1 Updated login
+* Feature 2 Course Page
+* Feature 3 Course Landing Page
 
 ##Work Summary (Developer Facing)
-
+Postgresql DB and Django integration
+AWS availability
 
 #Unfinished Work
+Need to link one more video demonstration
+Discussion Board
+File uploaded visibility, can upload file but cannot see what was uploaded via Student or Instructor side
+Grade Page needs to be tuned
 
 ## Completed Issues/User Stories
 
@@ -77,19 +82,9 @@ https://github.com/amsmith41/GradeTracker/issues/40 Discussion Page
 https://github.com/amsmith41/GradeTracker/issues/41 Grade Page
 https://github.com/amsmith41/GradeTracker/issues/42 Retrospective Report
 
-
-
-
-
-
-
-
-
-
-
-
-
 ##Incomplete Issues/User Stories
+
+https://github.com/amsmith41/GradeTracker/issues/41 Grade Page
 
 ##Code Files for Review
 
