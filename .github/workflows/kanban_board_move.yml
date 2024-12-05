@@ -12,3 +12,6 @@ jobs:
           project: Kanban for GradeTracker()
           column: In Progress
           repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+#intended for newly created issues, once someone has been assigned the issue, the issue on the kanban board will automatically move to the "in progress" comlumn
+#I suspect this is another scope issue where a PTA is required for this yaml file workflow to be given permissions to move on the project board
