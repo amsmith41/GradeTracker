@@ -1,0 +1,14 @@
+name: Column Move
+on:
+  issues:
+    types:
+      - assigned
+jobs:
+  move-assigned-card:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/kanban_board_move@main
+        with:
+          project: Kanban for GradeTracker()
+          column: In Progress
+          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
