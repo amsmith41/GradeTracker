@@ -1,16 +1,16 @@
-name: Add issue to Kanban
+#name: Add issue to Kanban
 
-on:
-  issues:
-    types: [opened]
+#on:
+#  issues:
+#    types: [opened]
 
-jobs:
-  add-to-project:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - uses: actions/add-to-project@main
-        with:
-          project-url: 'https://github.com/users/amsmith41/projects/3'  #Grade Tracker Kanban
-          github-token: ${{ secrets.GITHUB_TOKEN }} #The current issue is that GITHUB_TOKEN only has the scope of the repository level and cannot access projects. 
+#jobs:
+#  add-to-project:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@main
+#      - uses: actions/add-to-project@main
+#        with:
+#          project-url: 'https://github.com/users/amsmith41/projects/3'  #Grade Tracker Kanban
+#          github-token: ${{ secrets.GITHUB_TOKEN }} #The current issue is that GITHUB_TOKEN only has the scope of the repository level and cannot access projects. 
                                                     #In order to fix this issue, a Personal Access Token would need to be created.
