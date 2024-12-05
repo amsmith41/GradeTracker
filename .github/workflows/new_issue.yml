@@ -1,0 +1,15 @@
+name: Add issue to Kanban
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/add-to-project@latest
+        with:
+          project-url: 'https://github.com/users/amsmith41/projects/3'  #Grade Tracker Kanban
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
