@@ -1,0 +1,19 @@
+******************************************************
+Authentication readMe
+
+A virtual environment is required for the Django website to function
+
+pip install virtualenv
+virtualenv venv                  #naming the environment venv
+source venv/bin/activate         #to activate the virtual environment
+
+pip install Django               #make sure Django is installed
+cd authentication
+python manage.py makemigrations  #updates and creates tables as needed
+python manage.py migrate         #synchronize model changes with the database scheme
+python manage.py runserver       #activates the server
+
+into a browser, type " http://127.0.0.1:8000/ " to verify if it works
+into a browser, type " http://127.0.0.1:8000/admin " to see the actual login page
+
+******************************************************
