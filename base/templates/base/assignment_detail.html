@@ -1,0 +1,80 @@
+<!--This is a single assignment page-->
+
+{% extends "base/base.html" %}
+
+
+<!--TO override! the bar on the right from the parent html-->
+{% block sidebar_list %}
+<ul class="list-group">
+
+  <li class="list-group-item list-group-item-light">
+    <a class="mr-2" href="{% url 'gradetracker-commentPage' assignment.pk %}">Discussion</a>
+  </li>
+
+</ul>
+{% endblock sidebar_list %}
+
+
+{% block content %}
+    <!--We dont need a for loop!-->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'gradetracker-commentPage' assignment.pk %}">{{ assignment.assignment_title }}</a> <!-- double curly to use variable -->
+              <small class="text-muted">{{ assignment.assignment_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ assignment.instructor.first_name }} {{ assignment.instructor.last_name }}</a></h2>
+            <p class="article-content">{{assignment.instruction }}</p>
+            
+            <!--
+            {% if assignment.grade %}
+              <p class="article-grade">Grade: {{ assignment.grade }}</p>
+            {% else %}
+              <p class="article-grade">Grade: Not yet graded</p>
+            {% endif %}
+            -->
+          </div>
+        </article>
+        
+        {% if assignment.is_submitted %}
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2">Your Response</a> <!-- double curly to use variable -->
+            <small class="text-muted">{{ assignment.submission_posted }}</small>
+          </div>
+          <p class="article-content">{{assignment.submitted_response }}</p>
+          
+        </div>
+        {% else %}
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2">Your Response</a> <!-- double curly to use variable -->
+          </div>
+          <p class="article-content">Assignment Not Submitted Yet!</p>
+          
+        </div>
+        {% endif %}
+        <!--Assignment Response-->
+        
+        <!--Check if submitt button is clicked or nopt-->
+        {% if assignment.is_submit_button_clicked %}
+        <div class="form-row field-instruction">
+          <div>
+            <div class="flex-container">
+              <label class="required" for="id_instruction"></label>        
+                <textarea cols="100" rows="30" class="vLargeTextField" required id="id_instruction">
+                  Write a brief paragraph (100 - 200 words) on what you learned about through your Internet Research</textarea>   
+            </div> 
+          </div>
+        </div>
+        {% else %}
+        {% endif %}
+        
+        <!--Submit button  it will take you to the Submit Url-->
+        <form method="POST" action="{% url 'gradetracker-assignment-submit' assignment.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Submit Assignment</button>
+        </form>
+        
+        
+{% endblock content %}

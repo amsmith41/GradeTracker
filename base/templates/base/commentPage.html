@@ -1,0 +1,37 @@
+{% extends "base/base.html" %}
+
+<!--TO override! the bar on the right from the parent html-->
+
+{% block sidebar_list %}
+<ul class="list-group">
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'gradetracker-commentCreate'%}">Post a comment</a>
+</ul>
+{% endblock sidebar_list %}
+
+{% block content %}
+    
+    
+    {% for comment in comments %}
+    
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ comment.author }}</a>
+              <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
+                {% if comment.author == user %}
+                <div> <!--now we have functionalies added upadate and delete-->
+                <!--bootstraped buttonn        margin top 1 margin bottom 1-->
+                <!--<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'gradetracker-commentUpdate' pk=comment.pk%}">Edit</a>-->
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'gradetracker-commentDelete' pk=comment.pk %}">Delete</a>
+                </div>
+                {% endif %}
+              
+            </div>                  <!--change this url to from the dead link to post-detail with int-->
+            <h2><a class="article-title" href="#">{{ comment.title }}</a></h2>
+            <p class="article-content">{{ comment.content }}</p>
+          </div>
+        </article>
+        
+    {% endfor %}
+{% endblock content %}
+

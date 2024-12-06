@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <h2>You have been logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'gradetracker-login' %}">Log In Again</a> <!--we give this the name of the login url-->
+        </small>
+    </div>
+{% endblock content %}
+<!--we need this html otherwise defualt logout view page from built in will be admin page-->

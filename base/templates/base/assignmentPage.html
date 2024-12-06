@@ -1,0 +1,28 @@
+<!--This is our assignment page-->
+
+{% extends "base/base.html" %}
+
+{% block content %}
+    {% for student_assignment in student_assignments %} <!-- for loop  article html snippet template-->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'gradetracker-assignment-detail' student_assignment.pk %}">{{ student_assignment.assignment.assignment_title }}</a> <!-- double curly to use variable -->
+              <small class="text-muted">{{ assignment.assignment_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ student_assignment.assignment.instructor.first_name }} {{ student_assignment.assignment.instructor.last_name }}</a></h2>
+            <p class="article-content">{{ student_assignment.assignment.instruction }}</p>
+            
+            <p class="article-grade">Grade: {{ student_assignment.grade }}</p>
+            
+            <!--No need for this!-->
+            <!--{% if assignment.grade %}
+              <p class="article-grade">Grade: {{ student_assignment.grade }}</p>
+            {% else %}
+              <p class="article-grade">Grade: Not yet graded</p>
+            {% endif %}
+            -->
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %} <!--now we can use the crispy filter on our form-->
+{% block content %}
+    <div class="content-section"> <!--The <div> element is used as a container for other HTML elements.-->
+        <form method="POST"> <!--An HTML form is used to collect user input with boxes. The user input is most often sent to a server for processing-->
+            {% csrf_token %} <!--protect our form from attacks to add security without it form wont work   underlying details-->
+            <fieldset class="form-group">  <!-- related varaibles -->
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}  <!--this crispy does all the styling!! {{form.as_p}} redner form as a paragraph-->
+            </fieldset>
+            
+            <div class="form-group">  <!-- created a button  submit buitton-->
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3"> <!--padding top 3-->
+            <small class="text-muted">  <!-- ml-2 margin left with a value of 2 -->
+                Already Have An Account? <a class="ml-2" href="#">Sign In</a> <!--anchor tag to the sing in page-->
+            </small>
+        </div>
+    </div>
+{% endblock content %}
+

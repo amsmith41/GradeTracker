@@ -1,0 +1,30 @@
+{% extends "base/base.html" %} <!--Html template inheritance from base.html-->
+
+<!--TO override! the bar on the right from the parent html-->
+{% block sidebar_list %}
+<ul class="list-group">
+
+</ul>
+{% endblock sidebar_list %}
+
+
+{% block content %}
+  {% if user.is_authenticated %}
+  {% for course in courses %} <!-- for loop  article html snippet template-->
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <!--Make sure to include course.pk! otherwuse when clicking on the course name pk is not passed-->
+          <a class="mr-2" href="{% url 'gradetracker-course' course.pk%}">{{ course.course_name }}</a> <!-- double curly to use variable -->
+          <small class="text-muted">{{ course.registered }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ course.instructor.first_name }} {{ course.instructor.last_name }}</a></h2>
+        <p class="article-content">{{ course.course_description}}</p>
+      </div>
+    </article>
+  {%endfor%} 
+  {%else%}
+  <h1>Welcome to our Grade Traceker!</h1>
+  <p>GradeTracker is designed to help students and faculty monitor academic performance and provide timely feedback.</p>
+  {%endif%}
+{% endblock content %}

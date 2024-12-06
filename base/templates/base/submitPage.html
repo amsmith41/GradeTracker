@@ -1,0 +1,71 @@
+<!--This is a single assignment page-->
+
+{% extends "base/base.html" %}
+
+
+<!--TO override! the bar on the right from the parent html-->
+{% block sidebar_list %}
+<ul class="list-group">
+
+  
+
+</ul>
+{% endblock sidebar_list %}
+
+
+{% block content %}
+    <!--We dont need a for loop!-->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'gradetracker-commentPage' assignment.pk %}">{{ assignment.assignment_title }}</a> <!-- double curly to use variable -->
+              <small class="text-muted">{{ assignment.assignment_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ assignment.instructor.first_name }} {{ assignment.instructor.last_name }}</a></h2>
+            <p class="article-content">{{ assignment.instruction }}</p>
+            
+            <!--
+            {% if assignment.grade %}
+              <p class="article-grade">Grade: {{ assignment.grade }}</p>
+            {% else %}
+              <p class="article-grade">Grade: Not yet graded</p>
+            {% endif %}
+            -->
+          </div>
+        </article>
+        
+      
+        
+        <!--Where you write the assignment response-->
+        
+        <div class="form-row field-instruction">
+          <div>
+            <div class="flex-container">
+              <label class="required" for="id_instruction"></label>        
+                <textarea cols="100" rows="30" class="vLargeTextField" required id="id_instruction">
+                </textarea>   
+            </div> 
+          </div>
+        </div>
+        
+        
+        <!--Assignment Submit button-->
+        
+        <!-- Assignment Submit Button -->
+         <!--since our intention is to submit to the assignment submit page not the assignment detail!-->
+        <form method="POST" action="{% url 'gradetracker-assignment-submit' assignment.pk %}">
+          {% csrf_token %} <!--for security-->
+          <button type="submit" class="btn btn-primary">Submit Assignment</button>
+        </form>
+        
+        <!--
+        <form method="POST" action="{% url 'gradetracker-assignment-detail' assignment.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Submit Assignment</button>
+        </form>
+        -->
+        
+{% endblock content %}
+
+
+

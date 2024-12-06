@@ -1,0 +1,35 @@
+{% extends "base/base.html" %} <!--Html template inheritance from base.html-->
+
+<!--TO override! the bar on the right from the parent html-->
+{% block sidebar_list %}
+<ul class="list-group">
+
+</ul>
+{% endblock sidebar_list %}
+
+
+{% block content %}
+  {% for user_course in user_courses %}
+  <!--{% for course in courses %} for loop  article html snippet template-->
+  
+    <article class="media content-section" style="border: 2px solid #3498db;">
+        <div class="media-body">
+          <div class="article-metadata">
+            <!--href="{% url 'gradetracker-course' course.pk %}"-->
+            <a class="mr-2">Your class Performance Summary: {{ user_course.course.course_name }}</a> <!-- double curly to use variable -->
+            <small class="text-muted">{{ user_course.course.registered }}</small>
+          </div>
+          <h2><a class="article-title" href="#">{{ user_course.course.instructor.first_name }} {{ user_course.course.instructor.last_name }}</a></h2>
+          <p class="article-content">{{ user_course.course.course_description}}</p>
+          <h1 style="font-size: 24px; font-weight: normal;">Your Participation: {{user_course.participation}}</h1>
+          <h1 style="font-size: 24px; font-weight: normal;">Your Assignment Average: {{user_course.assignment_average}}</h1>
+          <h1 style="font-size: 24px; font-weight: normal;">Your Midterms Average: {{user_course.midterms_average}}</h1>
+          <h1 style="font-size: 24px; font-weight: normal;">Your Final Exam: {{user_course.final}}</h1>
+        </div>
+    </article>
+    
+  <!--{% endfor %} since this is an inner loop it will loop twice!!-->
+  {% endfor %}
+    
+    
+{% endblock content %}

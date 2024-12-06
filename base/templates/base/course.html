@@ -1,0 +1,42 @@
+<!--THis is Courser Landing page-->
+
+{% extends "base/base.html" %} <!--Html template inheritance from base.html-->
+
+<!--TO override! the bar on the right from the parent html-->
+{% block sidebar_list %}
+<ul class="list-group">
+  
+  <li class="list-group-item list-group-item-light"> <!--I should use course.pk instead of assignment!-->
+    <!--because in assignmentPage function I used this line of code -->
+    <!--course = get_object_or_404(Course, pk=pk)-->
+    <a class="mr-2" href="{% url 'gradetracker-assignmentPage' course.pk %}">Assignments</a>
+  </li>
+  <!--Notifications and announcements-->
+</ul>
+{% endblock sidebar_list %}
+
+
+{% block content %}
+
+    <article class="media content-section" style="border: 2px solid #3498db;">
+    <div class="media-body">
+      <div class="article-metadata">
+        <!--href="{% url 'gradetracker-course' course.pk %}"-->
+        <a class="mr-2">Your class Performance Summary: {{ course.course_name }}</a> <!-- double curly to use variable -->
+        <small class="text-muted">{{ course.registered }}</small>
+      </div>
+      <h2><a class="article-title" href="#">{{ course.instructor.first_name }} {{ course.instructor.last_name }}</a></h2>
+      <p class="article-content">{{ course.course_description}}</p>
+      
+      <!--
+      <h1 style="font-size: 24px; font-weight: normal;">Your Participation: </h1>
+      <h1 style="font-size: 24px; font-weight: normal;">Your Assignment Average:</h1>
+      <h1 style="font-size: 24px; font-weight: normal;">Your Midterms Average:</h1>
+      <h1 style="font-size: 24px; font-weight: normal;">Your Final Exam: </h1>
+      -->
+    </div>
+    </article>
+    
+    
+    
+{% endblock content %}
