@@ -1,6 +1,5 @@
 Feature: User Registration
   Scenario: Log In
-  Scenario: Log In
     Given we are at the home screen
     And we are logged out
     When we navigate to the login button

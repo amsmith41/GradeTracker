@@ -12,7 +12,6 @@ WORKDIR /GradeTracker
 RUN apt-get update && apt-get install -y \
     postgresql \
     postgresql-contrib \
-    python3.10-venv \
     libpq-dev python3-dev \
     python3-behave \
     && apt-get clean \
